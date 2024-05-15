@@ -69,7 +69,7 @@ let disconnect = (ws, reason) => {
 let handleSubscribe = (ws, parsedMessage, connectionInfo) => {
   if (parsedMessage.stocks instanceof Array) {
     parsedMessage.stocks.forEach((stock) => {
-      if (stocks.some((e) => e.symbol === stock)) {
+      if (stocks.some((e) => e.symbol === stock.symbol)) {
         if (!connectionInfo.stocksToWatch.includes(stock)) {
           connectionInfo.stocksToWatch.push(stock);
         }
