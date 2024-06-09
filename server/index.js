@@ -70,7 +70,7 @@ let handleSubscribe = (ws, parsedMessage, connectionInfo) => {
   if (parsedMessage.stocks instanceof Array) {
     parsedMessage.stocks.forEach((stock) => {
       if (stocks.some((e) => e.symbol === stock.symbol)) {
-        if (!connectionInfo.stocksToWatch.includes(stock)) {
+        if (!connectionInfo.stocksToWatch.includes(stock.symbol)) {
           connectionInfo.stocksToWatch.push(stock.symbol);
         }
       } else {
