@@ -71,7 +71,7 @@ let handleSubscribe = (ws, parsedMessage, connectionInfo) => {
     parsedMessage.stocks.forEach((stock) => {
       if (stocks.some((e) => e.symbol === stock.symbol)) {
         if (!connectionInfo.stocksToWatch.includes(stock)) {
-          connectionInfo.stocksToWatch.push(stock);
+          connectionInfo.stocksToWatch.push(stock.symbol);
         }
       } else {
         ws.send(getErrorEvent("invalid stock symbol"));
