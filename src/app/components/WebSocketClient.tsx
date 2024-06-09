@@ -6,15 +6,15 @@ function WebSocketClient() {
 
   useEffect(() => {
     // Create WebSocket connection.
-    socket.current = new WebSocket("ws://localhost:8080");
+    socket = new WebSocket("ws://localhost:8080");
 
     // Connection opened
-    socket.current.addEventListener("open", () => {
+    socket.addEventListener("open", () => {
       console.log("Connected to the WebSocket server at ws://localhost:8080");
     });
 
     return () => {
-      socket.current.close();
+      socket.close();
     };
   }, []);
 
