@@ -1,20 +1,22 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function WebSocketClient() {
-  const socket = useRef<any>(null);
+  const [socket, setSocket] = useState<WebSocket>();
 
   useEffect(() => {
     // Create WebSocket connection.
-    socket.current = new WebSocket("ws://localhost:8080");
+    const wsConnection = new WebSocket("ws://localhost:8080");
 
     // Connection opened
-    socket.current.addEventListener("open", () => {
+    wsConnection.addEventListener("open", () => {
       console.log("Connected to the WebSocket server at ws://localhost:8080");
     });
 
+    setSocket(wsConnection);
+
     return () => {
-      socket.current.close();
+      socket?.close();
     };
   }, []);
 
