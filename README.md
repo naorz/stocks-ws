@@ -64,14 +64,15 @@ Allow users to subscribe or unsubscribe to specific stocks by interacting with t
 }
 ```
 
-### 4. Extend Server Functionality
-
-When a user subscribes to a stock, the client can optionally pass a time interval for how frequently they want updates for that specific stock. This interval should be handled dynamically on the server to adjust the rate of updates accordingly. 
-Note: The client implementation is up to you - with UI components OR send the server a random number.
-
-### 5. Update UI on Stock Change
+### 4. Update UI on Stock Change
 
 Display the subscribed stocks on the UI and update the display dynamically to reflect changes in stock prices. Use an Arrow component to indicate the direction of the stock price movement:
 
 - **Green arrow pointing up** if the stock price increases.
 - **Red arrow pointing down** if the stock price decreases.
+
+
+### 5. Extend Server Functionality
+
+When a user subscribes to a stock, the client can optionally pass a time interval for how frequently they want updates for that specific stock. This interval should be handled dynamically on the server to adjust the rate of updates accordingly. 
+Note: The client implementation is up to you - with UI components OR send the server a random number.
