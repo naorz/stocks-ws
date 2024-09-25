@@ -43,17 +43,13 @@ Navigate to `http://localhost:3000` to view the application.
 
 ## Functionalities
 
-### 1. Connect to the WebSocket
+### 1. Fetch and Display Stocks
 
-Implement the logic in the client component to establish a connection to the WebSocket server. Ensure the connection remains open to continuously receive updates.
+fetch the initial list of stocks from the server and display these stocks on the screen.
 
-### 2. Fetch and Display Stocks
+### 2. Subscription Management
 
-Upon establishing the WebSocket connection, fetch the initial list of stocks from the server and display these stocks on the screen.
-
-### 3. Subscription Management
-
-Allow users to subscribe or unsubscribe to specific stocks by interacting with the UI elements representing each stock. The subscription data should be sent to the WebSocket server in the following format:
+Allow users to subscribe to specific stock/stocks by clicking it. The subscription data should be sent to the WebSocket server in the following format:
 
 ```json
 {
@@ -64,7 +60,7 @@ Allow users to subscribe or unsubscribe to specific stocks by interacting with t
 }
 ```
 
-### 4. Update UI on Stock Change
+### 3. Update UI on Stock Change
 
 Display the subscribed stocks on the UI and update the display dynamically to reflect changes in stock prices. Use an Arrow component to indicate the direction of the stock price movement:
 
@@ -72,7 +68,7 @@ Display the subscribed stocks on the UI and update the display dynamically to re
 - **Red arrow pointing down** if the stock price decreases.
 
 
-### 5. Extend Server Functionality
+### 5. Bonus - Extend Server Functionality
 
 When a user subscribes to a stock, the client can optionally pass a time interval for how frequently they want updates for that specific stock. This interval should be handled dynamically on the server to adjust the rate of updates accordingly. 
 Note: The client implementation is up to you - with UI components OR send the server a random number.
