@@ -45,7 +45,7 @@ Navigate to `http://localhost:3000` to view the application.
 
 ### 1. Fetch and Display Stocks
 
-fetch the initial list of stocks from the server and display these stocks on the screen.
+Fetch the initial list of stocks from the server and display these stocks on the screen.
 
 ### 2. Subscription Management
 
@@ -68,7 +68,7 @@ Display the subscribed stocks on the UI and update the display dynamically to re
 - **Red arrow pointing down** if the stock price decreases.
 
 
-### 5. Bonus - Extend Server Functionality
+### 4. Bonus - Extend Server Functionality
 
 When a user subscribes to a stock, the client can optionally pass a time interval for how frequently they want updates for that specific stock. This interval should be handled dynamically on the server to adjust the rate of updates accordingly. 
 Note: The client implementation is up to you - with UI components OR send the server a random number.
