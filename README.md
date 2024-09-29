@@ -1,3 +1,6 @@
+# Preview
+![alt text](./preview/preview.gif "Preview")
+
 # Full Stack Assignment: Real-Time Stock Updates
 
 This project demonstrates real-time stock updates using WebSockets. It features a server component that sends stock updates and a Next.js client application that displays these updates.
