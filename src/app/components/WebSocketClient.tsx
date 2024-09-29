@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import "./style.scss";
+import { useEffect } from "react";
+import { StockList } from "./Stocks/StockList";
+import { useStocks } from "./Stocks/useStocks";
 
 function WebSocketClient() {
-  const [socket, setSocket] = useState<WebSocket>();
+  const {setWebSocket, onMessage, webSocket} = useStocks();
 
   useEffect(() => {
     // Create WebSocket connection.
@@ -13,14 +16,22 @@ function WebSocketClient() {
       console.log("Connected to the WebSocket server at ws://localhost:8080");
     });
 
-    setSocket(wsConnection);
+    setWebSocket(wsConnection);
+    console.log('🎸', '='.repeat(5), `wsConnection`, wsConnection);
+
+    wsConnection.addEventListener("message", (event) => {
+      onMessage(event);
+    });
 
     return () => {
-      socket?.close();
+      webSocket?.close();
     };
   }, []);
 
-  return <div>WebSocket Client</div>;
+  return <section>
+    <h1>Stocks</h1>
+    <StockList />
+  </section>;
 }
 
 export default WebSocketClient;

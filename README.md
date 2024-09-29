@@ -28,7 +28,7 @@ npm install
 Start the WebSocket server:
 
 ```bash
-node server
+npm run server
 ```
 
 **Client:**

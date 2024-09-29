@@ -1,0 +1,106 @@
+body {
+  background-color: #fff;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  --color-not-subscribe: rgba(0,0,250,0.8);
+  --color-subscribe: rgba(0,150,0,0.8);
+  --spacing: 4px;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  text-decoration: underline;
+}
+
+.stocks-list {
+  width: 50%;
+  margin: 0 auto;
+  
+  > div.symbol {
+    margin: var(--spacing);
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 15% 30% 100px;
+
+    > * {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: var(--spacing);
+      &:not(:last-child) {
+        border-right: 1px solid var(--color-not-subscribe);
+      }
+
+      &.name {
+        > span:nth-child(1) {
+          text-decoration: underline;
+        }
+        > span:nth-child(2) {
+          padding-left: calc(var(--spacing) * 3);
+        }
+      }
+
+      &.is-subscribe {
+        color: var(--color-not-subscribe)
+      }
+
+      &.price {
+        display: grid;
+        &:has(:not(.up):not(.down):not(.none)) {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        > * {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &.none :is(:nth-child(2), :nth-child(3)) {
+          color: black;
+        }
+        &.up :is(:nth-child(2), :nth-child(3)) {
+          color: green;
+        }
+        &.down :is(:nth-child(2), :nth-child(3)) {
+          color: red;
+        }
+      }
+    }
+
+    .subscribe-btn {
+      justify-content: center;
+      > button {
+        background-color: var(--color-not-subscribe);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: var(--spacing);
+        margin: var(--spacing);
+      }
+    }
+
+
+
+    &.subscribe {
+      > *, & {
+        border-color: var(--color-subscribe)
+      }
+      > .is-subscribe {
+        color: var(--color-subscribe);
+      }
+      > div.subscribe-btn {
+        background-color: var(--color-subscribe);
+        cursor: disabled;
+        > button {
+          cursor: disabled;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
